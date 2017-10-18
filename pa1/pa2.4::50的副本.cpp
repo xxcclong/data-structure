@@ -7,10 +7,12 @@
 //
 
 #include <iostream>
+#include <stdio.h>
 using namespace std;
 long long x[200005];
 long long y[200005];
-int init(){
+int init()
+{
     int x=0,f=1;char s=getchar();
     while(s<'0'||s>'9'){if(s=='-')f=-1;s=getchar();}
     while(s>='0'&&s<='9'){x=x*10+s-'0';s=getchar();}
@@ -69,23 +71,24 @@ int main()
     long long qx,qy;
     while(m--)
     {
-        cin>>qx>>qy;
+        qx = init();
+        qy = init();
         int head = 0,tail = n-1;
         long long hgongbei = x[head]*y[head];
         if(y[head]*qx+x[head]*qy<hgongbei)
         {
-            cout<<0<<endl;
+            printf("0\n");
             continue;
         }
         if(y[head]*qx+x[head]*qy == hgongbei)
         {
-            cout<<1<<endl;
+            printf("1\n");
             continue;
         }
         hgongbei = x[tail]*y[tail];
         if(y[tail]*qx+x[tail]*qy>=hgongbei)
         {
-            cout<<n<<endl;
+            printf("%d\n",n);
             continue;
         }
         bool flag = false;
@@ -100,7 +103,7 @@ int main()
             }
             else if(cmp==gongbei)
             {
-                cout<<mid + 1<<endl;
+                printf("%d\n",mid+1);
                 flag = true;
                 break;
             }
@@ -112,7 +115,7 @@ int main()
         }
         if(!flag)
         {
-            cout<<head + 1<<endl;
+            printf("%d\n",head+1);
         }
         
         
